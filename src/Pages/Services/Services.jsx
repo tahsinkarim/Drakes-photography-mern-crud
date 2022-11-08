@@ -1,5 +1,6 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
+import { PhotoProvider, PhotoView } from "react-photo-view";
 import { Link, useLoaderData } from "react-router-dom";
 
 const Services = () => {
@@ -26,7 +27,15 @@ const Services = () => {
           <div className='md:grid grid-cols-3 gap-4 mx-4'>
             {services.map((service) => (
               <div key={service._id}>
-                <img src={service.img} alt={service.title} />
+                <PhotoProvider>
+                  <PhotoView src={service.img}>
+                    <img
+                      className='cursor-pointer'
+                      src={service.img}
+                      alt={service.title}
+                    />
+                  </PhotoView>
+                </PhotoProvider>
                 <h3 className='text-2xl font-semibold mt-6 underline'>
                   {service.title}
                 </h3>

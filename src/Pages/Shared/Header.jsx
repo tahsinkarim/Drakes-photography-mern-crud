@@ -7,8 +7,8 @@ const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   const Links = [
     { name: "HOME", link: "/" },
-    { name: "ABOUT", link: "/about" },
-    { name: "BLOG", link: "/blog" },
+    { name: "SERVICES", link: "/services" },
+    { name: "BLOG", link: "/blogs" },
     { name: "CONTACT", link: "/contact" },
   ];
   const [open, setOpen] = useState(false);
@@ -27,7 +27,9 @@ const Header = () => {
             className='font-bold text-2xl cursor-pointer flex items-center
       text-gray-800'
           >
-            <span className='text-3xl text-indigo-600 mr-1 pt-2'>Logo</span>
+            <span className='text-lg md:text-xl text-yellow-600 mr-1 pt-2'>
+              John Doe Phptography
+            </span>
           </div>
 
           <div
@@ -52,21 +54,21 @@ const Header = () => {
               >
                 <Link
                   to={link.link}
-                  className='text-gray-800 hover:text-gray-400 duration-500'
+                  className='text-gray-800 hover:text-yellow-600 duration-500'
                 >
                   {link.name}
                 </Link>
               </li>
             ))}
             {user?.uid && (
-              <li>
-                <img
-                  title={user.displayName}
-                  className='w-9 h-9 rounded-full mx-4'
-                  src={user?.photoURL}
-                  alt=''
-                />
-              </li>
+              <>
+                <li className='text-gray-800 hover:text-yellow-600 duration-500 md:ml-8 font-semibold md:my-0 my-7'>
+                  MY REVIEWS
+                </li>
+                <li className='text-gray-800 hover:text-yellow-600 duration-500 md:ml-8 font-semibold md:my-0 my-7'>
+                  ADD SERVICE
+                </li>
+              </>
             )}
             {user?.uid ? (
               <button
@@ -110,6 +112,12 @@ const Header = () => {
               alt=''
             />
           </li>
+        )}
+        {user?.uid && (
+          <>
+            <li>My reviews</li>
+            <li>Add Service</li>
+          </>
         )}
         {user?.uid ? (
           <button
