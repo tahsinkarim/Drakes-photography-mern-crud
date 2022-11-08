@@ -6,11 +6,8 @@ const AboutUs = () => {
     <div className='mt-20'>
       <h1 className='text-4xl font-bold text-center mb-8'>About Us</h1>
       <div className='bg-black'>
-        <div className=' flex text-white py-28 px-8 gap-16 max-w-7xl mx-auto items-center'>
-          <div className='w-1/2'>
-            <img className='border' src={img} alt='' />
-          </div>
-          <div className='w-1/2'>
+        <div className=' md:flex flex-row-reverse text-white py-20 md:py-28 px-8 gap-16 max-w-7xl mx-auto items-center'>
+          <div className='md:w-1/2'>
             <h2 className='text-2xl lg:text-3xl font-bold mb-4 lg:text-center'>
               THE MAPHOTO EXPERIENCE
             </h2>
@@ -25,6 +22,9 @@ const AboutUs = () => {
               world. Since 2012, we have helped over 750 amazing couples
               document their weddings around the world.
             </p>
+          </div>
+          <div className='md:w-1/2 mt-20'>
+            <img className='border' src={img} alt='' />
           </div>
         </div>
       </div>

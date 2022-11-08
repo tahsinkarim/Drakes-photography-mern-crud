@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import img from "../../assets/banner.jpg";
 
 const Banner = () => {
@@ -20,12 +21,12 @@ const Banner = () => {
             Los Angeles Wedding Photographer serving all of Southern California
             and destinations worldwide
           </p>
-          <button
+          <Link
             onClick={() => console.log("hello")}
-            className='py-4 w-60 bg-white text-black text-sm font-bold tracking-widest cursor-pointer hover:bg-gray-200'
+            className='py-4 px-8 bg-white text-black text-sm font-bold tracking-widest cursor-pointer hover:bg-gray-200'
           >
             EXPLORE SERVICES
-          </button>
+          </Link>
         </div>
       </div>
     </div>
