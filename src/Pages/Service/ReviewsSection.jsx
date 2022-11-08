@@ -11,13 +11,14 @@ const ReviewsSection = ({ id }) => {
     const reviewObj = {
       user: user.uid,
       name: user.displayName,
+      photoURL: user.photoURL,
       review: review,
       service: id,
       date: new Date(),
     };
     console.log(reviewObj);
-
-    fetch("http://localhost:5000/reviews", {
+    //Post Review
+    fetch("https://server-photographer-tahsinkarim.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -34,12 +35,25 @@ const ReviewsSection = ({ id }) => {
       });
   };
   return (
-    <div>
+    <div className='mx-4 md:mx-8'>
       <h1>Reviews</h1>
       {user?.uid ? (
-        <form onSubmit={handleSubmit}>
-          <input type='text' placeholder='review' name='review' />
-          <button type='submit'>Submit</button>
+        <form
+          onSubmit={handleSubmit}
+          className='flex flex-col max-w-5xl mx-auto mb-20'
+        >
+          <textarea
+            className='bg-gray-200 mb-8 h-28 px-4 py-4'
+            type='text'
+            placeholder='Your review'
+            name='review'
+          ></textarea>
+          <button
+            className='text-sm font-bold tracking-widest bg-yellow-600/70 text-white w-40 mx-auto py-3 '
+            type='submit'
+          >
+            Submit
+          </button>
         </form>
       ) : (
         <Link to='/login'>Log in to comment</Link>

@@ -63,7 +63,7 @@ const Header = () => {
             {user?.uid && (
               <>
                 <li className='text-gray-800 hover:text-yellow-600 duration-500 md:ml-8 font-semibold md:my-0 my-7'>
-                  MY REVIEWS
+                  <Link to='/myreviews'>MY REVIEWS</Link>
                 </li>
                 <li className='text-gray-800 hover:text-yellow-600 duration-500 md:ml-8 font-semibold md:my-0 my-7'>
                   ADD SERVICE
