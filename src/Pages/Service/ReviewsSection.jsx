@@ -1,9 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import ReviewCard from "../Shared/ReviewCard";
 
 const ReviewsSection = ({ id }) => {
   const { user } = useContext(AuthContext);
+
+  const [reviews, setReviews] = useState([]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -34,9 +38,30 @@ const ReviewsSection = ({ id }) => {
         }
       });
   };
+
+  useEffect(() => {
+    fetch(`https://server-photographer-tahsinkarim.vercel.app/reviews/${id}`)
+      .then((res) => res.json())
+      .then((data) => setReviews(data));
+  }, [handleSubmit]);
   return (
     <div className='mx-4 md:mx-8'>
-      <h1>Reviews</h1>
+      <h1 className='text-3xl lg:text-4xl font-bold mb-10 text-center'>
+        Reviews
+      </h1>
+
+      {reviews.length < 1 ? (
+        <h2 className='text-center text-gray-500 font-semibold text-2xl my-16'>
+          No reviews for this service
+        </h2>
+      ) : (
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto my-20'>
+          {reviews.map((rev) => (
+            <ReviewCard key={rev._id} rev={rev}></ReviewCard>
+          ))}
+        </div>
+      )}
+
       {user?.uid ? (
         <form
           onSubmit={handleSubmit}
@@ -56,7 +81,14 @@ const ReviewsSection = ({ id }) => {
           </button>
         </form>
       ) : (
-        <Link to='/login'>Log in to comment</Link>
+        <div className='flex justify-center'>
+          <Link
+            className='text-center text-white text-sm font-bold bg-[#141414] py-4 px-7 tracking-widest mb-4'
+            to='/login'
+          >
+            Log in to add review
+          </Link>
+        </div>
       )}
     </div>
   );

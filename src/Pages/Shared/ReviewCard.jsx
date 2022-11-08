@@ -2,16 +2,17 @@ import React from "react";
 
 const ReviewCard = ({ rev }) => {
   const { name, photoURL, review, date } = rev;
-
-  const today = new Date();
   const reviewDate = new Date(date);
-  const diff = today - reviewDate;
-  const minutes = Math.round(((diff % 86400000) % 3600000) / 60000);
+  const dateString = reviewDate.toLocaleDateString().replace(/\//g, "-");
+
+  const time = reviewDate.toLocaleTimeString();
+
+  console.log(date, reviewDate);
   return (
     <div>
       <div className='flex flex-col max-w-sm mx-4 my-6 shadow-lg'>
-        <div className='px-4 py-12 rounded-t-lg sm:px-8 md:px-12'>
-          <p className='relative px-6 py-1 text-lg italic text-center'>
+        <div className='px-4 py-12 rounded-t-lg sm:px-8 md:px-8 bg-gray-100 min-h-[240px]'>
+          <p className='relative px-4 py-1 text-lg italic text-center'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 512 512'
@@ -40,7 +41,8 @@ const ReviewCard = ({ rev }) => {
             className='w-16 h-16 object-cover mb-2 -mt-16 rounded-full'
           />
           <p className='text-xl font-semibold leading-tight'>{name}</p>
-          <p className='text-sm uppercase'>{minutes} minutes ago</p>
+          <p className='text-sm uppercase'>{time}</p>
+          <p className='text-sm uppercase'>{dateString}</p>
         </div>
       </div>
     </div>
