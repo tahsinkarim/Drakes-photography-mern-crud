@@ -10,11 +10,28 @@ const ReviewsSection = ({ id }) => {
     const review = form.review.value;
     const reviewObj = {
       user: user.uid,
+      name: user.displayName,
       review: review,
       service: id,
-      date: new Date().toISOString(),
+      date: new Date(),
     };
     console.log(reviewObj);
+
+    fetch("http://localhost:5000/reviews", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(reviewObj),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          alert("review posted");
+          form.reset();
+        }
+      });
   };
   return (
     <div>
