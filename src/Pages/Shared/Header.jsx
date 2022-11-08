@@ -21,7 +21,7 @@ const Header = () => {
 
   return (
     <div>
-      <div className='shadow-md w-full z-20 relative'>
+      <div className='shadow-md w-full z-40 relative'>
         <div className='md:flex items-center justify-between bg-white py-4 md:px-10 px-7'>
           <div
             className='font-bold text-2xl cursor-pointer flex items-center
@@ -44,7 +44,7 @@ const Header = () => {
           </div>
 
           <ul
-            className={`hidden bg-gray-100 md:flex md:items-center md:pb-0 pb-12 absolute md:static z-10 md:bg-white left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in"
+            className={`hidden bg-gray-100 md:flex md:items-center md:pb-0 pb-12 absolute md:static z-30 md:bg-white left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in"
             }`}
           >
             {Links.map((link) => (

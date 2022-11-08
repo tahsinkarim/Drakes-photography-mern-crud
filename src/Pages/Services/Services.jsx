@@ -8,10 +8,10 @@ const Services = () => {
 
   return (
     <div className='mx-auto max-w-7xl mb-16'>
-      <h1 className='mt-10 text-4xl font-bold text-center text-slate-800'>
+      <h1 className='mt-10 text-4xl font-bold sm:text-center text-slate-800 mx-4'>
         Our Services
       </h1>
-      <p className='mt-8 md:px-12 text-center text-lg'>
+      <p className='mt-8 md:px-12 sm:text-center text-lg mx-4'>
         Welcome to our photography studio! Our team offers a wide range of
         services throughout Los Angeles, perfect for any occasion. We specialize
         in wedding, engagement, family, and pet photography, and we also offer
@@ -19,12 +19,12 @@ const Services = () => {
         photographers will work with you to create beautiful photographs that
         you'll cherish forever.
       </p>
-      <p className='text-center mt-4 mb-8 font-semibold'>
+      <p className='sm:text-center mt-4 mb-8 font-semibold mx-4'>
         Choose from a list of our services below
       </p>
       <div>
         {
-          <div className='md:grid grid-cols-3 gap-4 mx-4'>
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 mx-4'>
             {services.map((service) => (
               <div key={service._id}>
                 <PhotoProvider>

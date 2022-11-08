@@ -2,7 +2,7 @@ import React from "react";
 
 const Awards = () => {
   return (
-    <div className='mt-20 max-w-7xl mx-auto px-8'>
+    <div className='mt-20 max-w-7xl mx-auto px-4 sm:px-8'>
       <h2 className='text-4xl font-bold text-center mb-6'>
         AWARDS AND FELICITATIONS
       </h2>
