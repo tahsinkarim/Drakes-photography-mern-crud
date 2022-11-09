@@ -9,13 +9,16 @@ const UpdateModal = ({ setShowModal, review, setReviews, reviews }) => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:5000/update/${review._id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(dbReview),
-    })
+    fetch(
+      `https://server-photographer-tahsinkarim.vercel.app/update/${review._id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(dbReview),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
