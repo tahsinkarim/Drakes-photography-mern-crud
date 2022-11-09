@@ -89,13 +89,14 @@ const Header = () => {
         </div>
       </div>
       <ul
-        className={`bg-gray-100 pb-12 absolute z-10 left-0 w-full pl-9 transition-all duration-500 ease-in ${
-          open ? "top-20 " : "top-[-490px]"
+        className={`lg:hidden bg-gray-100 pb-12 absolute z-10 left-0 w-full pl-9 transition-all duration-300 ease-in ${
+          open ? "top-16" : "top-[-490px]"
         }`}
       >
         {Links.map((link) => (
           <li key={link.name} className='font-semibold my-7'>
             <Link
+              onClick={() => setOpen(!open)}
               to={link.link}
               className='text-gray-800 hover:text-yellow-600 duration-300'
             >
@@ -106,10 +107,14 @@ const Header = () => {
         {user?.uid && (
           <>
             <li className='text-gray-800 hover:text-yellow-600 duration-300 font-semibold my-7'>
-              <Link to='/myreviews'>MY REVIEWS</Link>
+              <Link onClick={() => setOpen(!open)} to='/myreviews'>
+                MY REVIEWS
+              </Link>
             </li>
             <li className='text-gray-800 hover:text-yellow-600 duration-300 font-semibold my-7'>
-              <Link to='/addservice'>ADD SERVICE</Link>
+              <Link onClick={() => setOpen(!open)} to='/addservice'>
+                ADD SERVICE
+              </Link>
             </li>
           </>
         )}

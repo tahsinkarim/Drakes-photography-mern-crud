@@ -9,8 +9,23 @@ const AddService = () => {
     const price = form.price.value;
     const description = form.description.value;
     const date = new Date().toISOString();
-    const obj = { title, img, price, description, date };
-    console.log(obj);
+    const service = { title, img, price, description, date };
+
+    fetch("http://localhost:5000/services", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(service),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          alert("Created New Service");
+          form.reset();
+        }
+      })
+      .catch((err) => console.log(err));
   };
   return (
     <div>
