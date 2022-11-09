@@ -1,12 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import ReviewCard from "../Shared/ReviewCard";
 
-const ReviewsSection = ({ id }) => {
+const ReviewsSection = ({ service }) => {
   const { user } = useContext(AuthContext);
 
   const [reviews, setReviews] = useState([]);
+
+  const location = useLocation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,7 +19,8 @@ const ReviewsSection = ({ id }) => {
       name: user.displayName,
       photoURL: user.photoURL,
       review: review,
-      service: id,
+      service: service._id,
+      title: service.title,
       date: new Date(),
     };
     console.log(reviewObj);
@@ -40,14 +43,16 @@ const ReviewsSection = ({ id }) => {
   };
 
   useEffect(() => {
-    fetch(`https://server-photographer-tahsinkarim.vercel.app/reviews/${id}`)
+    fetch(
+      `https://server-photographer-tahsinkarim.vercel.app/reviews/${service._id}`
+    )
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, [handleSubmit]);
   return (
-    <div className='mx-4 md:mx-8'>
-      <h1 className='text-3xl lg:text-4xl font-bold mb-10 text-center'>
-        Reviews
+    <div className='mx-4 md:mx-8 pt-16'>
+      <h1 className='text-3xl md:text-5xl lg:text-4xl font-bold mb-4 text-center'>
+        Check out what our customers have to say
       </h1>
 
       {reviews.length < 1 ? (
@@ -55,7 +60,7 @@ const ReviewsSection = ({ id }) => {
           No reviews for this service
         </h2>
       ) : (
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto my-20'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto my-9'>
           {reviews.map((rev) => (
             <ReviewCard key={rev._id} rev={rev}></ReviewCard>
           ))}
@@ -83,6 +88,8 @@ const ReviewsSection = ({ id }) => {
       ) : (
         <div className='flex justify-center'>
           <Link
+            state={{ from: location }}
+            replace
             className='text-center text-white text-sm font-bold bg-[#141414] py-4 px-7 tracking-widest mb-4'
             to='/login'
           >

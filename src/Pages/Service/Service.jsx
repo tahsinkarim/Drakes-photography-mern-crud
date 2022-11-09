@@ -4,7 +4,8 @@ import { Link, useLoaderData } from "react-router-dom";
 import ReviewsSection from "./ReviewsSection";
 
 const Service = () => {
-  const { _id, title, img, rating, price, description } = useLoaderData();
+  const service = useLoaderData();
+  const { _id, title, img, rating, price, description } = service;
   return (
     <div>
       <div
@@ -61,7 +62,7 @@ const Service = () => {
           </div>
         </div>
       </div>
-      <ReviewsSection id={_id}></ReviewsSection>
+      <ReviewsSection service={service}></ReviewsSection>
     </div>
   );
 };

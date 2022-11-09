@@ -7,7 +7,6 @@ const ReviewCard = ({ rev }) => {
 
   const time = reviewDate.toLocaleTimeString();
 
-  console.log(date, reviewDate);
   return (
     <div>
       <div className='flex flex-col max-w-sm mx-4 my-6 shadow-lg'>

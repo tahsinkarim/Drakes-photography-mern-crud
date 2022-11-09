@@ -34,7 +34,7 @@ const Header = () => {
 
           <div
             onClick={() => setOpen(!open)}
-            className='absolute right-8 top-6 cursor-pointer md:hidden'
+            className='absolute right-8 top-6 cursor-pointer lg:hidden'
           >
             {open ? (
               <FaTimes className='text-3xl'></FaTimes>
@@ -44,7 +44,7 @@ const Header = () => {
           </div>
 
           <ul
-            className={`hidden bg-gray-100 md:flex md:items-center md:pb-0 pb-12 absolute md:static z-30 md:bg-white left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in"
+            className={`hidden bg-gray-100 lg:flex md:items-center md:pb-0 pb-12 absolute md:static z-30 md:bg-white left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in"
             }`}
           >
             {Links.map((link) => (
@@ -54,7 +54,7 @@ const Header = () => {
               >
                 <Link
                   to={link.link}
-                  className='text-gray-800 hover:text-yellow-600 duration-500'
+                  className='text-gray-800 hover:text-yellow-600 duration-500 text-sm'
                 >
                   {link.name}
                 </Link>
@@ -62,11 +62,11 @@ const Header = () => {
             ))}
             {user?.uid && (
               <>
-                <li className='text-gray-800 hover:text-yellow-600 duration-500 md:ml-8 font-semibold md:my-0 my-7'>
+                <li className='text-gray-800 text-sm hover:text-yellow-600 duration-500 md:ml-8 font-semibold md:my-0 my-7'>
                   <Link to='/myreviews'>MY REVIEWS</Link>
                 </li>
-                <li className='text-gray-800 hover:text-yellow-600 duration-500 md:ml-8 font-semibold md:my-0 my-7'>
-                  ADD SERVICE
+                <li className='text-gray-800 text-sm hover:text-yellow-600 duration-500 md:ml-8 font-semibold md:my-0 my-7'>
+                  <Link to='/addservice'>ADD SERVICE</Link>
                 </li>
               </>
             )}
@@ -94,29 +94,23 @@ const Header = () => {
         }`}
       >
         {Links.map((link) => (
-          <li key={link.name} className='md:ml-8 font-semibold md:my-0 my-7'>
+          <li key={link.name} className='font-semibold my-7'>
             <Link
               to={link.link}
-              className='text-gray-800 hover:text-gray-400 duration-500'
+              className='text-gray-800 hover:text-yellow-600 duration-300'
             >
               {link.name}
             </Link>
           </li>
         ))}
         {user?.uid && (
-          <li>
-            <img
-              title={user.displayName}
-              className='w-9 h-9 rounded-full mx-4'
-              src={user?.photoURL}
-              alt=''
-            />
-          </li>
-        )}
-        {user?.uid && (
           <>
-            <li>My reviews</li>
-            <li>Add Service</li>
+            <li className='text-gray-800 hover:text-yellow-600 duration-300 font-semibold my-7'>
+              <Link to='/myreviews'>MY REVIEWS</Link>
+            </li>
+            <li className='text-gray-800 hover:text-yellow-600 duration-300 font-semibold my-7'>
+              <Link to='/addservice'>ADD SERVICE</Link>
+            </li>
           </>
         )}
         {user?.uid ? (

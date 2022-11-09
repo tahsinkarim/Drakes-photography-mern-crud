@@ -5,11 +5,11 @@ import Header from "../Pages/Shared/Header";
 
 const Main = () => {
   return (
-    <>
+    <div className='flex flex-col justify-between min-h-screen'>
       <Header></Header>
       <Outlet></Outlet>
       <Footer></Footer>
-    </>
+    </div>
   );
 };
 
