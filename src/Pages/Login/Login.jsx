@@ -44,7 +44,6 @@ const Login = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             localStorage.setItem("token", data.token);
             navigate(from, { replace: true });
           });
@@ -81,6 +80,7 @@ const Login = () => {
       <div className='mt-8 sm:mx-auto sm:w-full sm:max-w-md'>
         <div className='px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10'>
           <form onSubmit={handleSubmit}>
+            {error && <p className='text-red-500'>{error}</p>}
             <div>
               <label
                 htmlFor='email'

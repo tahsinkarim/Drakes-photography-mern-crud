@@ -10,7 +10,7 @@ const Register = () => {
     document.title = title;
   }, [title]);
 
-  const { createUser, updateUser } = useContext(AuthContext);
+  const { createUser, updateUser, logOut } = useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const handleSubmit = (e) => {
@@ -27,7 +27,8 @@ const Register = () => {
         const user = result.user;
         handleUpdateInfo(name, photoURL);
         form.reset();
-        navigate("/");
+        logOut();
+        navigate("/login");
       })
       .catch((error) => {
         setError(error.message);
@@ -66,6 +67,7 @@ const Register = () => {
       <div className='mt-8 sm:mx-auto sm:w-full sm:max-w-md'>
         <div className='px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10'>
           <form onSubmit={handleSubmit}>
+            {error && <p className='text-red-500'>{error}</p>}
             <div>
               <label
                 htmlFor='name'
