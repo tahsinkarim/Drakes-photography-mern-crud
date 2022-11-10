@@ -39,7 +39,7 @@ const AddService = () => {
   return (
     <div>
       <h1 className='text-2xl font-bold text-center'>Add a new service</h1>
-      <form onSubmit={handleSubmit}>
+      <form className='mx-4' onSubmit={handleSubmit}>
         <div className='flex flex-col justify-center max-w-3xl mx-auto my-4'>
           <label htmlFor='title' className='font-semibold text-sm'>
             Title
@@ -62,8 +62,8 @@ const AddService = () => {
             required
           />
         </div>
-        <div className='flex justify-between gap-4 max-w-3xl mx-auto my-4'>
-          <div className='flex flex-col w-1/2'>
+        <div className='flex flex-col md:flex-row justify-between gap-2 max-w-3xl mx-auto my-4 w-full'>
+          <div className='flex flex-col md:w-1/2'>
             <label htmlFor='price' className='font-semibold text-sm'>
               Price
             </label>
@@ -74,7 +74,7 @@ const AddService = () => {
               required
             />
           </div>
-          <div className='flex flex-col w-1/2'>
+          <div className='flex flex-col md:w-1/2'>
             <label htmlFor='rating' className='font-semibold text-sm'>
               Rating
             </label>
