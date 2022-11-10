@@ -5,8 +5,8 @@ import Banner from "./Banner";
 import ServicesSection from "./ServicesSection";
 
 const Home = () => {
+  //Dynamic title
   const [title, setTitle] = useState("Home | Photography");
-
   useEffect(() => {
     document.title = title;
   }, [title]);

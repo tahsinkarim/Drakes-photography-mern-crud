@@ -10,16 +10,16 @@ const Banner = () => {
     >
       <div className='max-w-7xl mx-auto flex flex-col md:items-end justify-center h-full'>
         <div>
-          <h1 className='text-2xl lg:text-3xl max-w-md font-bold '>
+          <h1 className='text-3xl lg:text-5xl max-w-md font-bold '>
             Often Imitated. Never Duplicated.
           </h1>
           <p className='my-4 text-sm font-bold tracking-widest'>
             Ranked #1 Wedding Photographer in the USA
           </p>
           <p className='text-lg max-w-sm lg:max-w-lg mb-8 font-medium'>
-            The original luxury cinematic wedding photography studio. We are a
-            Los Angeles Wedding Photographer serving all of Southern California
-            and destinations worldwide
+            The original luxury cinematic wedding photography. I am a Los
+            Angeles Wedding Photographer serving all of Southern California and
+            destinations worldwide
           </p>
           <Link
             to='/services'

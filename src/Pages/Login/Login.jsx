@@ -5,14 +5,15 @@ import { AuthContext } from "../../contexts/AuthProvider";
 import GoogleLogin from "./GoogleLogin";
 
 const Login = () => {
-  const [title, setTitle] = useState("Login");
   const [loading, setLoading] = useState(false);
+  const { signIn } = useContext(AuthContext);
+  const [error, setError] = useState("");
 
+  //Dynamic title
+  const [title, setTitle] = useState("Login");
   useEffect(() => {
     document.title = title;
   }, [title]);
-  const { signIn } = useContext(AuthContext);
-  const [error, setError] = useState("");
 
   // Get previous location
   const location = useLocation();

@@ -55,8 +55,8 @@ const Service = () => {
               <span className='text-gray-300 mx-2'>•</span>
               <span>{rating}</span>
             </div>
-            <div className=''>
-              <span className='text-lg font-semibold mr-4'>Price:</span>
+            <div className='text-2xl pt-2'>
+              <span className=' font-semibold mr-4'>Price:</span>
               <span className='text-yellow-600 font-semibold'>$</span>
               <span className='text-2xl font-bold text-yellow-600'>
                 {price}

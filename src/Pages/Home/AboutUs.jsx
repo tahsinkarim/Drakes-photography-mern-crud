@@ -12,18 +12,18 @@ const AboutUs = () => {
               THE MAPHOTO EXPERIENCE
             </h2>
             <p className='lg:text-lg'>
-              We specialize in wedding photography, engagement photography,
+              I specialize in wedding photography, engagement photography,
               maternity photography, family photography, and more. Indoors or
-              outdoors, by the sea or inland, we've done it all! If you're
-              thinking of adding a wedding video, we offer cinematography
-              services as well. We also have options for destination bridal
+              outdoors, by the sea or inland, I've done it all! If you're
+              thinking of adding a wedding video, I offer cinematography
+              services as well. I also have options for destination bridal
               shoots for couples who want to shoot in locations outside of
               Southern California, and have photographed weddings all over the
-              world. Since 2012, we have helped over 750 amazing couples
-              document their weddings around the world.
+              world. Since 2012, I have helped over 750 amazing couples document
+              their weddings around the world.
             </p>
           </div>
-          <div className='md:w-1/2 mt-20'>
+          <div className='md:w-1/2 mt-20 md:mt-0'>
             <img className='border' src={img} alt='' />
           </div>
         </div>

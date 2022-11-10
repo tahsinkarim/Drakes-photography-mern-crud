@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 
 const Blogs = () => {
+  //Dynamic title
   const [title, setTitle] = useState("Blogs");
-
   useEffect(() => {
     document.title = title;
   }, [title]);

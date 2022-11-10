@@ -5,7 +5,7 @@ const Footer = () => {
     <>
       <footer className='bg-gray-900 text-white pt-12 pb-8 px-4'>
         <div className='container overflow-hidden flex flex-col lg:flex-row justify-between mx-auto px-4'>
-          <h2 className='block mr-2 w-30 text-2xl font-serif font-bold'>
+          <h2 className='block mr-2 w-30 text-3xl logo font-bold'>
             Drake's Photography
           </h2>
           <div className='w-3/4 block sm:flex text-sm mt-6 lg:mt-0'>

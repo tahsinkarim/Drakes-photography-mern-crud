@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 const AddService = () => {
+  //Dynamic title
   const [title, setTitle] = useState("Add Service");
-
   useEffect(() => {
     document.title = title;
   }, [title]);
 
+  //Submit new review
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -34,6 +35,7 @@ const AddService = () => {
       })
       .catch((err) => console.log(err));
   };
+
   return (
     <div>
       <h1 className='text-2xl font-bold text-center'>Add a new service</h1>

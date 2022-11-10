@@ -11,9 +11,11 @@ const MyReviews = () => {
   const { user, logOut } = useContext(AuthContext);
   const [title, setTitle] = useState("My Reviews");
 
+  //Dynamic title
   useEffect(() => {
     document.title = title;
   }, [title]);
+
   //Delete review
   const handleDelete = (id) => {
     fetch(`https://server-photographer-tahsinkarim.vercel.app/reviews/${id}`, {
@@ -29,6 +31,7 @@ const MyReviews = () => {
       });
   };
 
+  //Modal Toggle
   const handleModal = (rev) => {
     setReview(rev);
     setShowModal(!showModal);
@@ -52,6 +55,7 @@ const MyReviews = () => {
       .then((data) => setReviews(data));
   }, [user]);
 
+  //Show spinner while loading
   if (reviews === null) {
     return (
       <div className='flex justify-center'>
