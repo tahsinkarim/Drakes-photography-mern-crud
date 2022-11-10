@@ -22,7 +22,7 @@ const Banner = () => {
             and destinations worldwide
           </p>
           <Link
-            onClick={() => console.log("hello")}
+            to='/services'
             className='py-4 px-8 bg-white text-black text-sm font-bold tracking-widest cursor-pointer hover:bg-gray-200'
           >
             EXPLORE SERVICES

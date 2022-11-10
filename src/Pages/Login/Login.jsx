@@ -1,9 +1,16 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { InfinitySpin } from "react-loader-spinner";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import GoogleLogin from "./GoogleLogin";
 
 const Login = () => {
+  const [title, setTitle] = useState("Login");
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    document.title = title;
+  }, [title]);
   const { signIn } = useContext(AuthContext);
   const [error, setError] = useState("");
 
@@ -17,17 +24,43 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-
+    setLoading(true);
     signIn(email, password)
       .then((result) => {
         const user = result.user;
+        const currentUser = {
+          email: user.email,
+        };
         form.reset();
-        navigate(from, { replace: true });
+        setLoading(false);
+
+        //Get jwt token
+        fetch("https://server-photographer-tahsinkarim.vercel.app/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            localStorage.setItem("token", data.token);
+            navigate(from, { replace: true });
+          });
       })
       .catch((error) => {
         setError(error.message);
+        setLoading(false);
       });
   };
+  if (loading) {
+    return (
+      <div className='flex justify-center'>
+        <InfinitySpin width='200' color='#CA8A04' />
+      </div>
+    );
+  }
   return (
     <div className='flex flex-col justify-center min-h-[60vh] py-12 px-4 bg-gray-50 sm:px-6 lg:px-8'>
       <div className='sm:mx-auto sm:w-full sm:max-w-md'>

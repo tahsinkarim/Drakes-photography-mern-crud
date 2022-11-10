@@ -1,9 +1,15 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import GoogleLogin from "./GoogleLogin";
 
 const Register = () => {
+  const [title, setTitle] = useState("Register");
+
+  useEffect(() => {
+    document.title = title;
+  }, [title]);
+
   const { createUser, updateUser } = useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 const UpdateModal = ({ setShowModal, review, setReviews, reviews }) => {
   const [previousReview, setPreviousReview] = useState(review.review);
   const dbReview = {
-    date: new Date().toISOString(),
     review: previousReview,
   };
 
@@ -28,6 +28,7 @@ const UpdateModal = ({ setShowModal, review, setReviews, reviews }) => {
 
           const newReviews = [updated, ...remaining];
           setReviews(newReviews);
+          toast.success("Review Updated");
           setShowModal(false);
         }
       });

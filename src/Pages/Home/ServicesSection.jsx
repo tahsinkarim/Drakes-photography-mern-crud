@@ -9,6 +9,8 @@ const ServicesSection = () => {
   const textShort = (text) => {
     if (text.length > 100) {
       return text.slice(0, 100) + "...";
+    } else {
+      return text;
     }
   };
 
@@ -17,6 +19,7 @@ const ServicesSection = () => {
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
+
   return (
     <div className='mt-16 max-w-7xl mx-auto'>
       <h1 className='text-4xl font-bold text-center mb-4'>Our top picks</h1>

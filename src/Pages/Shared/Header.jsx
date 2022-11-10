@@ -28,7 +28,7 @@ const Header = () => {
       text-gray-800'
           >
             <span className='text-lg md:text-xl text-yellow-600 mr-1 pt-2'>
-              John Doe Phptography
+              <Link to='/'>Drake Photography</Link>
             </span>
           </div>
 

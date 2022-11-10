@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import ReviewCard from "../Shared/ReviewCard";
@@ -15,15 +16,13 @@ const ReviewsSection = ({ service }) => {
     const form = e.target;
     const review = form.review.value;
     const reviewObj = {
-      user: user.uid,
+      user: user.email,
       name: user.displayName,
       photoURL: user.photoURL,
       review: review,
       service: service._id,
       title: service.title,
-      date: new Date(),
     };
-    console.log(reviewObj);
     //Post Review
     fetch("https://server-photographer-tahsinkarim.vercel.app/reviews", {
       method: "POST",
@@ -34,9 +33,8 @@ const ReviewsSection = ({ service }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.acknowledged) {
-          alert("review posted");
+          toast.success("Review posted");
           form.reset();
         }
       });

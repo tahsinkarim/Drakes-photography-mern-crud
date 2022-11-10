@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
 import ReviewsSection from "./ReviewsSection";
@@ -6,6 +6,12 @@ import ReviewsSection from "./ReviewsSection";
 const Service = () => {
   const service = useLoaderData();
   const { _id, title, img, rating, price, description } = service;
+  const [pageTitle, setPageTitle] = useState(`${title}`);
+
+  useEffect(() => {
+    document.title = pageTitle;
+  }, [title]);
+
   return (
     <div>
       <div
@@ -27,7 +33,7 @@ const Service = () => {
               California and destinations worldwide
             </p>
             <Link
-              onClick={() => console.log("hello")}
+              to='/services'
               className='py-4 px-8 bg-white text-black text-sm font-bold tracking-widest cursor-pointer hover:bg-gray-200 lg:mt-8'
             >
               EXPLORE OTHER SERVICES

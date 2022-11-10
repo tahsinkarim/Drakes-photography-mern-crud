@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Blogs = () => {
+  const [title, setTitle] = useState("Blogs");
+
+  useEffect(() => {
+    document.title = title;
+  }, [title]);
+
   return (
     <div className='my-10 max-w-6xl mx-auto p-8 sm:px-28'>
       <div>

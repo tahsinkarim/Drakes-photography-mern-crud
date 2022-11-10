@@ -1,10 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
+import { InfinitySpin } from "react-loader-spinner";
 import { PhotoProvider, PhotoView } from "react-photo-view";
-import { Link, useLoaderData } from "react-router-dom";
+
+import { Link } from "react-router-dom";
 
 const Services = () => {
-  const services = useLoaderData();
+  const [title, setTitle] = useState("My Services");
+  const [services, setServices] = useState([]);
+
+  useEffect(() => {
+    document.title = title;
+  }, [title]);
+
+  useEffect(() => {
+    fetch("https://server-photographer-tahsinkarim.vercel.app/services")
+      .then((res) => res.json())
+      .then((data) => setServices(data));
+  }, []);
+  const textShort = (text) => {
+    if (text.length > 100) {
+      return text.slice(0, 100) + "...";
+    } else {
+      return text;
+    }
+  };
+
+  if (services.length < 1) {
+    return (
+      <div className='flex justify-center'>
+        <InfinitySpin width='200' color='#CA8A04' />
+      </div>
+    );
+  }
 
   return (
     <div className='mx-auto max-w-7xl mb-16'>
@@ -43,7 +71,9 @@ const Services = () => {
                   <FaStar />
                   <span>{service.rating}</span>
                 </div>
-                <p className='mt-2 text-gray-600'>{service.description}</p>
+                <p className='mt-2 text-gray-600'>
+                  {textShort(service.description)}
+                </p>
                 <div className='my-3 flex items-center justify-between'>
                   <div>
                     <span className='text-yellow-600 font-semibold'>$</span>
