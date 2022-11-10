@@ -50,7 +50,7 @@ const UpdateModal = ({ setShowModal, review, setReviews, reviews }) => {
                   onChange={(e) => setPreviousReview(e.target.value)}
                   defaultValue={review.review}
                   name='newReview'
-                  className='shadow w-96 appearance-none border rounded w-full py-2 px-1 text-black'
+                  className='shadow appearance-none border rounded w-full py-2 px-1 text-black'
                 ></textarea>
                 <div className='flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b'>
                   <button
