@@ -1,6 +1,8 @@
 # Drake's Photography
 
-## A service provide and review website
+## ABOUT
+
+- A Photographer's website to showcase his services build with MERN stack
 
 ## 🛠 &nbsp;Tech Stack Used
 
@@ -16,20 +18,6 @@
 
 - react-hot-toast (for notifications on login)
 - react-router-scroll-to-top
-
-## ABOUT
-
-- A Programming language learning app with Firebase authentication and Private route.
-
-## STEPS
-
-- I used vite to create a react app instead of `npm create-react-app` since its faster.
-- For styling I used Tailwind CSS and Daisy Ui for tailwind components.
-- For routing I used React Router and `npm install react-hot-toast` to generate dynamic toasts.
-- Firebase Authentication and a Protected Route to access 'Checkout' page to confirm purchase.
-- JWT implemented on "My Reviews" page
-- 404 page for error
-- All the service and review data is fetched from api with express and mongodb in backend.
 
 ## FEATURES
 
