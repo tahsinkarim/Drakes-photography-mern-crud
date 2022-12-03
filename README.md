@@ -2,10 +2,6 @@
 
 ## ABOUT
 
-- A Photographer's website to showcase his services build with MERN stack
-
-## ABOUT
-
 - Website for a photographer to showcase his services , built with MERN Stack
 
 ## 🛠 &nbsp;Tech Stack Used
